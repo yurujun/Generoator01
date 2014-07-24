@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="Generator01"
+  id="myeclipse.1405486039054"
+  context-root="/generator01"
+  j2ee-spec="5.0"
+  archive="Generator01.war">
+  <attributes>
+    <attribute name="webrootdir" value="webapps" />
+  </attributes>
+</project-module>
+

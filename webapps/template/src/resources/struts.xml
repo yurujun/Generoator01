@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<!-- struts.multipart.maxSize:Struts文件上传默认的大小是2M,该变量更改允许上传的文件大小  -->
+	<constant name="struts.multipart.maxSize" value="1000000000" />
+	
+	<!-- struts.action.extension:action的后缀 -->
+	<constant name="struts.action.extension" value="do" />
+	
+	<!-- struts.enable.DynamicMethodInvocation:允许动态方法调用  -->
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+	
+	<!-- struts.devMode:是否为struts开发模式 -->
+    <constant name="struts.devMode" value="true" />
+    
+	<!-- struts.objectFactory:ObjectFactory接口 -->
+	<constant name="struts.objectFactory" value="spring" />
+	
+	<!-- struts.objectFactory.spring.autoWire:指定当使用SpringObjectFactory时的自动装配逻辑.合法值包括: name, type, auto, 和 constructor (缺省为 name ) -->
+	<constant name="struts.objectFactory.spring.autoWire" value="name" />
+	
+	<!-- struts.configuration.xml.reload:当 struts的配置文件修改后，系统是否自动重新加载该文件，默认值为false（生 产环境下使用），开发阶段最好打开 -->   
+   	<constant name="struts.configuration.xml.reload" value="true" />
+   	
+   	<!-- 加载自定义的的国际化属性文件（不包含.properties后缀）。可以增加多个properties文件的名称，使用逗号或者空格分割 -->
+   	<!-- 如果创建中文和英语国际化,那么资源文件名称为struts-custom-messsages_zh_CN.properties和struts-custom-messsages_en_US.properties-->
+	<constant name="struts.custom.i18n.resources" value="struts-custom-messsages" />
+	
+	<!-- 默认的UI template主题 -->
+	<!-- 不加一下配置,使用s标签时会产生css冲突 -->
+	<constant name="struts.ui.theme" value="simple" />
+	
+	
+    <package name="unlogin" extends="struts-default">
+
+        <default-action-ref name="index" />
+		
+		<!-- 定义全局结果集login,只要返回的结果是login,就跳转到登陆页面 -->
+        <global-results>
+            <result name="login">/login.jsp</result>
+        </global-results>
+
+        <global-exception-mappings>
+            <exception-mapping exception="java.lang.Exception" result="error"/>
+        </global-exception-mappings>
+        
+        <action name="loginAction" class="loginAction">
+            <result name="loginSuc">index.jsp</result>
+        </action>
+
+        <action name="testAction" class="testAction">
+            <result name="success">index.jsp</result>
+        </action>
+    </package>
+    
+    <!-- login包下面存放的action都是需要经过登陆以后才可以访问的 -->
+    <package name="login" extends="struts-default">
+    	
+    	<action name="menuInfoAction_*" class="menuInfoAction" method="{1}">
+    		<result name="add">/admin/pages/menuInfo_add.jsp</result>
+    		<result name="list">/admin/pages/menuInfo_list.jsp</result>
+    	</action>
+    	
+    	<action name="roleInfoAction_*" class="roleInfoAction" method="{1}">
+    		<result name="add">/admin/pages/roleInfo_add.jsp</result>
+    		<result name="fkSelect">/admin/pages/roleInfo_fkSelect.jsp</result>
+    		<result name="success">/admin/pages/roleInfo_list.jsp</result>
+    	</action>
+    
+    	<action name="userInfoAction_*" class="userInfoAction" method="{1}">
+    		<result name="add">/admin/pages/userInfo_add.jsp</result>
+    		<result name="success">/admin/pages/userInfo_{1}.jsp</result>
+    	</action>
+    </package>
+
+</struts>

@@ -1,0 +1,8 @@
+#Thu Jul 24 18:08:46 CST 2014
+eclipse.preferences.version=1
+encoding//src/java/cn/org/rapid_framework/generator/Generator.java=UTF-8
+encoding//src/java/cn/org/rapid_framework/generator/ext/CommandLine.java=UTF-8
+encoding//src/java/cn/org/rapid_framework/generator/provider/db/DataSourceProvider.java=UTF-8
+encoding//src/java/com/yzr/servlet/GeneratorServlet.java=UTF-8
+encoding//webapps/template/src/java/${basepackage_dir}/action/${className}Action.java=UTF-8
+encoding//webapps/templates/yizhaorong/src/main/java/${basepackage_dir}/controller/${className}Controller.java=UTF-8

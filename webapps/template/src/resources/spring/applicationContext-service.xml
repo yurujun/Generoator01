@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="GBK" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<bean id="menuInfoService" name="menuInfoService"
+	    class="com.web.service.impl.MenuInfoServiceImpl"></bean>
+	
+	<bean id="roleInfoService" name="roleInfoService"
+	    class="com.web.service.impl.RoleInfoServiceImpl"></bean>
+	
+	<bean id="userInfoService" name="userInfoService"
+	    class="com.web.service.impl.UserInfoServiceImpl"></bean>
+
+</beans>
